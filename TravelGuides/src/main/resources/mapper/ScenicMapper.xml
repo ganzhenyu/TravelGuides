@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TravelGuide.mapper.ScenicMapper">
+    <sql id="ScenicJoinDistrictAndCity">
+        SELECT s.*,d.*,c.* FROM Scenic s
+        LEFT JOIN District d ON s.districtId=d.id
+        LEFT JOIN City c ON d.cityId=c.id
+        where 1=1
+    </sql>
+    <sql id="ScenicJoinReplyScenic">
+        SELECT s.*,r.* FROM Scenic s
+        LEFT JOIN ReplyScenic r ON r.scenicId=s.id
+        where 1=1
+    </sql>
+    <sql id="ScenicJoinCollectScenic">
+        SELECT s.*,c.* FROM Scenic s
+        LEFT JOIN CollectScenic c ON c.scenicId=s.id
+        where 1=1
+    </sql>
+    <resultMap type="Scenic" id="ScenicRM">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="title" property="title" />
+        <result column="address" property="address" />
+        <result column="price" property="price" />
+        <result column="createTime" property="createTime" />
+        <result column="endTime" property="endTime" />
+        <result column="intro" property="intro" />
+        <result column="status" property="status" />
+        <association property="district" javaType="District">
+            <id column="districtId" property="id" />
+            <result column="name" property="name" />
+            <association property="city" javaType="City">
+                <id column="cityId" property="id" />
+                <result column="name" property="name" />
+            </association>
+        </association>
+    </resultMap>
+    <select id="fetchByEndTime" parameterType="int" resultMap="ScenicRM">
+        <include refid="ScenicJoinDistrictAndCity"></include>
+        ORDER BY s.endTime DESC
+        <if test="rows>=0">
+            LIMIT #{rows}
+        </if>
+    </select>
+    <select id="fetchByLove" parameterType="int" resultMap="ScenicRM">
+        <include refid="ScenicJoinDistrictAndCity"></include>
+        ORDER BY s.love DESC
+        <if test="rows>=0">
+            LIMIT #{rows}
+        </if>
+    </select>
+    <select id="fetchByEvaluate" parameterType="int" resultMap="ScenicRM">
+        <include refid="ScenicJoinReplyScenic"></include>
+        AND r.evaluate = 1
+        GROUP BY s.id
+        ORDER BY COUNT(s.id) DESC
+        <if test="rows>=0">
+            LIMIT #{rows}
+        </if>
+    </select>
+    <select id="fetchByCityId" parameterType="int" resultMap="ScenicRM">
+        <include refid="ScenicJoinDistrictAndCity"></include>
+        AND c.id = #{cityId}
+    </select>
+    <select id="fetchByCollect" parameterType="int" resultMap="ScenicRM">
+        <include refid="ScenicJoinCollectScenic"></include>
+        AND c.userId = #{userId}
+        <if test="rows>=0">
+            LIMIT #{rows}
+        </if>
+    </select>
+    <select id="fetchById" parameterType="int" resultType="Scenic">
+        <include refid="ScenicJoinDistrictAndCity"></include>
+        AND s.id = #{id}
+    </select>
+</mapper>

@@ -9,12 +9,13 @@ public class ReplyScenic {
     private int id;
     private String content;
     private Date createTime;
-    private User user;
+    private int scenicId;
 
-    public ReplyScenic(int id, String content, Date createTime) {
+    public ReplyScenic(int id, String content, Date createTime, int scenicId) {
         this.id = id;
         this.content = content;
         this.createTime = createTime;
+        this.scenicId = scenicId;
     }
 
     public int getId() {
@@ -41,11 +42,11 @@ public class ReplyScenic {
         this.createTime = createTime;
     }
 
-    public User getUser() {
-        return user;
+    public int getScenicId() {
+        return scenicId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setScenicId(int scenicId) {
+        this.scenicId = scenicId;
     }
 }

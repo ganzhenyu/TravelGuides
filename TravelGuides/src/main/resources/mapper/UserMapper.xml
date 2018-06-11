@@ -17,4 +17,7 @@
     <select id="UserLogin" parameterType="hashmap" resultType="User">
         SELECT * FROM User WHERE username=#{username} AND PASSWORD=#{password}
     </select>
+    <select id="fetchById" parameterType="int" resultType="User">
+        SELECT * FROM User WHERE id=#{id}
+    </select>
 </mapper>

@@ -15,9 +15,12 @@ public class Scenic {
     private Date createTime;
     private Date endTime;
     private String intro;
+    private int love;
+    private String path;
+    private int browse;
     private int status;
 
-    public Scenic(int id, String name, String title, String address, float price, Date createTime, Date endTime, String intro, int status) {
+    public Scenic(int id, String name, String title, String address, float price, Date createTime, Date endTime, String intro, int love, String path, int browse, int status) {
         this.id = id;
         this.name = name;
         this.title = title;
@@ -26,6 +29,9 @@ public class Scenic {
         this.createTime = createTime;
         this.endTime = endTime;
         this.intro = intro;
+        this.love = love;
+        this.path = path;
+        this.browse = browse;
         this.status = status;
     }
 
@@ -99,6 +105,30 @@ public class Scenic {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    public int getLove() {
+        return love;
+    }
+
+    public void setLove(int love) {
+        this.love = love;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public int getBrowse() {
+        return browse;
+    }
+
+    public void setBrowse(int browse) {
+        this.browse = browse;
     }
 
     public int getStatus() {
