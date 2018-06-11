@@ -9,12 +9,14 @@ public class ReplyTopic {
     private int id;
     private int topicId;
     private Date createTime;
+    private String content;
     private User user;
 
-    public ReplyTopic(int id, int topicId, Date createTime) {
+    public ReplyTopic(int id, int topicId, Date createTime, String content) {
         this.id = id;
         this.topicId = topicId;
         this.createTime = createTime;
+        this.content = content;
     }
 
     public int getId() {
@@ -39,6 +41,14 @@ public class ReplyTopic {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public User getUser() {

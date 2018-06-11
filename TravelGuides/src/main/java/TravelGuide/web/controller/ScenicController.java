@@ -30,13 +30,13 @@ public class ScenicController {
 
     @GetMapping("/scenicByLove")
     public List<Scenic> scenicByLove(){
-        List<Scenic> scenicByLove = scenicMapper.fetchByEndTime(3);
+        List<Scenic> scenicByLove = scenicMapper.fetchByLove(3);
         return scenicByLove;
     }
 
     @GetMapping("/scenicByEvaluate")
     public List<Scenic> scenicByEvaluate(){
-        List<Scenic> scenicByEvaluate = scenicMapper.fetchByEndTime(3);
+        List<Scenic> scenicByEvaluate = scenicMapper.fetchByEvaluate(3);
         return scenicByEvaluate;
     }
 }
