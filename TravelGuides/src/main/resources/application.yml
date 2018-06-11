@@ -1,5 +1,5 @@
 mybatis:
-  type-aliases-package: TravelGuides.entity
+  type-aliases-package: TravelGuide.entity
   mapper-locations: classpath:mapper/*.xml
 spring:
   datasource:
