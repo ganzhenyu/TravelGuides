@@ -16,22 +16,27 @@ import java.util.Map;
  * Created by Administrator on 2018/6/11.
  */
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/api/scenic")
 public class ScenicController {
 
     @Autowired
     private ScenicMapper scenicMapper;
 
-    @GetMapping("/index")
-    public Map<String,Object> index(){
-        Map<String,Object> map = new HashMap<>();
+    @GetMapping("/scenicByEndTime")
+    public List<Scenic> scenicByEndTime(){
         List<Scenic> scenicByEndTime = scenicMapper.fetchByEndTime(3);
-        List<Scenic> scenicByLove = scenicMapper.fetchByEndTime(3);
-        List<Scenic> scenicByEvaluate = scenicMapper.fetchByEndTime(3);
-        map.put("scenicByEndTime",scenicByEndTime);
-        map.put("scenicByLove",scenicByLove);
-        map.put("scenicByEvaluate",scenicByEvaluate);
-        return map;
+        return scenicByEndTime;
     }
 
+    @GetMapping("/scenicByLove")
+    public List<Scenic> scenicByLove(){
+        List<Scenic> scenicByLove = scenicMapper.fetchByEndTime(3);
+        return scenicByLove;
+    }
+
+    @GetMapping("/scenicByEvaluate")
+    public List<Scenic> scenicByEvaluate(){
+        List<Scenic> scenicByEvaluate = scenicMapper.fetchByEndTime(3);
+        return scenicByEvaluate;
+    }
 }
