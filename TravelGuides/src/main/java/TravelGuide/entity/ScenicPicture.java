@@ -8,6 +8,8 @@ public class ScenicPicture {
     private int scenicId;
     private String picture;
 
+    public ScenicPicture(){}
+
     public ScenicPicture(int id, int scenicId, String picture) {
         this.id = id;
         this.scenicId = scenicId;

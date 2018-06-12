@@ -8,6 +8,8 @@ public class CollectTopic {
     private int topicId;
     private int userId;
 
+    public CollectTopic(){}
+
     public CollectTopic(int id, int topicId, int userId) {
         this.id = id;
         this.topicId = topicId;

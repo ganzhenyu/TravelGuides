@@ -11,6 +11,8 @@ public class Topic {
     private Date createTime;
     private int status;
 
+    public Topic(){}
+
     public Topic(int id, String title, Date createTime, int status) {
         this.id = id;
         this.title = title;

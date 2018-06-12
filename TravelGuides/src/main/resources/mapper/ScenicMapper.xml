@@ -28,6 +28,9 @@
         <result column="createTime" property="createTime" />
         <result column="endTime" property="endTime" />
         <result column="intro" property="intro" />
+        <result column="love" property="love" />
+        <result column="path" property="path" />
+        <result column="browse" property="browse" />
         <result column="status" property="status" />
         <association property="district" javaType="District">
             <id column="districtId" property="id" />

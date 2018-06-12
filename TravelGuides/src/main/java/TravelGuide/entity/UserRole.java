@@ -8,6 +8,8 @@ public class UserRole {
     private int userId;
     private int roleId;
 
+    public UserRole(){}
+
     public UserRole(int id, int userId, int roleId) {
         this.id = id;
         this.userId = userId;

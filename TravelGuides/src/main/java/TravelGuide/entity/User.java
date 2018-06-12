@@ -14,6 +14,8 @@ public class User {
     private String picture;
     private int role;
 
+    public User(){}
+
     public User(int id, String userName, String password, String name, String phone, String email, String signature, String picture, int role) {
         this.id = id;
         this.userName = userName;

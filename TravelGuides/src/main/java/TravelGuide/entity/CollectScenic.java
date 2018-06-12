@@ -8,6 +8,8 @@ public class CollectScenic {
     private int scenicId;
     private int userId;
 
+    public CollectScenic(){}
+
     public CollectScenic(int id, int scenicId, int userId) {
         this.id = id;
         this.scenicId = scenicId;

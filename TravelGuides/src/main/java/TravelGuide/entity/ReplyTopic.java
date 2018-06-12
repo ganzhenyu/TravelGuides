@@ -12,6 +12,8 @@ public class ReplyTopic {
     private String content;
     private User user;
 
+    public ReplyTopic(){}
+
     public ReplyTopic(int id, int topicId, Date createTime, String content) {
         this.id = id;
         this.topicId = topicId;

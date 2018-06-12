@@ -12,6 +12,8 @@ public class Function {
     private String menuEntry;
     private int parentId;
 
+    public Function(){}
+
     public Function(int id, String name, String code, boolean isMenuItem, String menuLogo, String menuEntry, int parentId) {
         this.id = id;
         this.name = name;

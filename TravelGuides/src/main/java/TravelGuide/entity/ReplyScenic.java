@@ -11,6 +11,8 @@ public class ReplyScenic {
     private Date createTime;
     private int scenicId;
 
+    public ReplyScenic(){}
+
     public ReplyScenic(int id, String content, Date createTime, int scenicId) {
         this.id = id;
         this.content = content;

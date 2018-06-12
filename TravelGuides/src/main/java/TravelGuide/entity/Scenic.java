@@ -20,10 +20,13 @@ public class Scenic {
     private int browse;
     private int status;
 
-    public Scenic(int id, String name, String title, String address, float price, Date createTime, Date endTime, String intro, int love, String path, int browse, int status) {
+    public Scenic(){}
+
+    public Scenic(int id, String name, String title, District district, String address, float price, Date createTime, Date endTime, String intro, int love, String path, int browse, int status) {
         this.id = id;
         this.name = name;
         this.title = title;
+        this.district = district;
         this.address = address;
         this.price = price;
         this.createTime = createTime;
