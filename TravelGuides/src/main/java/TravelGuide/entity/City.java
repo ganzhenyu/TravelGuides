@@ -6,12 +6,14 @@ package TravelGuide.entity;
 public class City {
     private int id;
     private String name;
+    private String content;
 
-    public City(){}
+    public City() {}
 
-    public City(int id, String name) {
+    public City(int id, String name, String content) {
         this.id = id;
         this.name = name;
+        this.content = content;
     }
 
     public int getId() {
@@ -28,5 +30,13 @@ public class City {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

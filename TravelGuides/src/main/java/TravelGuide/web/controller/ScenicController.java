@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 2018/6/11.
  */
-@Controller
+@RestController
 @RequestMapping("/api/scenic")
 public class ScenicController {
 
@@ -34,9 +35,9 @@ public class ScenicController {
         return scenicByLove;
     }
 
-    @GetMapping("/scenicByEvaluate")
-    public List<Scenic> scenicByEvaluate(){
-        List<Scenic> scenicByEvaluate = scenicMapper.fetchByEvaluate(3);
-        return scenicByEvaluate;
+    @GetMapping("/scenicByBrowse")
+    public List<Scenic> scenicByBrowse(){
+        List<Scenic> scenicByBrowse = scenicMapper.fetchByBrowse(3);
+        return scenicByBrowse;
     }
 }

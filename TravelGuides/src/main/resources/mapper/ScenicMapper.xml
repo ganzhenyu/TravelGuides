@@ -4,14 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TravelGuide.mapper.ScenicMapper">
     <sql id="ScenicJoinDistrictAndCity">
-        SELECT s.*,d.*,c.* FROM Scenic s
+        SELECT s.*,d.*,c.*,u.* FROM Scenic s
         LEFT JOIN District d ON s.districtId=d.id
         LEFT JOIN City c ON d.cityId=c.id
-        where 1=1
-    </sql>
-    <sql id="ScenicJoinReplyScenic">
-        SELECT s.*,r.* FROM Scenic s
-        LEFT JOIN ReplyScenic r ON r.scenicId=s.id
+        LEFT JOIN User u ON s.userId=u.id
         where 1=1
     </sql>
     <sql id="ScenicJoinCollectScenic">
@@ -40,6 +36,17 @@
                 <result column="name" property="name" />
             </association>
         </association>
+        <association property="user" javaType="User">
+            <id column="userId" property="id" />
+            <result column="username" property="username" />
+            <result column="password" property="password" />
+            <result column="name" property="name" />
+            <result column="phone" property="phone" />
+            <result column="email" property="email" />
+            <result column="signature" property="signature" />
+            <result column="picture" property="picture" />
+            <result column="role" property="role" />
+        </association>
     </resultMap>
     <select id="fetchByEndTime" parameterType="int" resultMap="ScenicRM">
         <include refid="ScenicJoinDistrictAndCity"></include>
@@ -55,11 +62,9 @@
             LIMIT #{rows}
         </if>
     </select>
-    <select id="fetchByEvaluate" parameterType="int" resultMap="ScenicRM">
-        <include refid="ScenicJoinReplyScenic"></include>
-        AND r.evaluate = 1
-        GROUP BY s.id
-        ORDER BY COUNT(s.id) DESC
+    <select id="fetchByBrowse" parameterType="int" resultMap="ScenicRM">
+        <include refid="ScenicJoinDistrictAndCity"></include>
+        ORDER BY s.browse DESC
         <if test="rows>=0">
             LIMIT #{rows}
         </if>

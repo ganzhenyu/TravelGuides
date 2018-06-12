@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface CityMapper {
     List<City> getAll();//查询全部城市
+    City findById(int id);
+    City findByName(String name);
 }

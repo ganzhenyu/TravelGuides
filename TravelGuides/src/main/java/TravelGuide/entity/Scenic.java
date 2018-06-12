@@ -1,5 +1,7 @@
 package TravelGuide.entity;
 
+import TravelGuide.web.util.ConvertTime;
+
 import java.util.Date;
 
 /**
@@ -18,15 +20,15 @@ public class Scenic {
     private int love;
     private String path;
     private int browse;
+    private User user;
     private int status;
 
     public Scenic(){}
 
-    public Scenic(int id, String name, String title, District district, String address, float price, Date createTime, Date endTime, String intro, int love, String path, int browse, int status) {
+    public Scenic(int id, String name, String title, String address, float price, Date createTime, Date endTime, String intro, int love, String path, int browse, int status) {
         this.id = id;
         this.name = name;
         this.title = title;
-        this.district = district;
         this.address = address;
         this.price = price;
         this.createTime = createTime;
@@ -60,14 +62,6 @@ public class Scenic {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public District getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(District district) {
-        this.district = district;
     }
 
     public String getAddress() {
@@ -140,5 +134,33 @@ public class Scenic {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getCreateTimeLong(){
+        if (this.createTime==null)
+            return null;
+        String time = ConvertTime.DateToLongStr(this.createTime);
+        return time;
+    }
+
+    public String getEndTimeLong(){
+        if (this.endTime==null)
+            return null;
+        String time = ConvertTime.DateToLongStr(this.endTime);
+        return time;
+    }
+
+    public String getCreateTimeShort(){
+        if (this.createTime==null)
+            return null;
+        String time = ConvertTime.DateToShortStr(this.createTime);
+        return time;
+    }
+
+    public String getEndTimeShort(){
+        if (this.endTime==null)
+            return null;
+        String time = ConvertTime.DateToShortStr(this.endTime);
+        return time;
     }
 }
