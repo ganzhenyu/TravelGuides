@@ -5,7 +5,7 @@ package TravelGuide.entity;
  */
 public class User {
     private int id;
-    private String userName;
+    private String username;
     private String password;
     private String name;
     private String phone;
@@ -16,9 +16,9 @@ public class User {
 
     public User(){}
 
-    public User(int id, String userName, String password, String name, String phone, String email, String signature, String picture, int role) {
+    public User(int id, String username, String password, String name, String phone, String email, String signature, String picture, int role) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.name = name;
         this.phone = phone;
@@ -37,11 +37,11 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
