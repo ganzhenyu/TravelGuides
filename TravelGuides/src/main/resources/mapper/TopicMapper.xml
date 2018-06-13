@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TravelGuide.mapper.TopicMapper">
+	<sql id="TopicJoinUser">
+		SELECT t.*,u.* FROM topic t
+		LEFT JOIN User u ON t.userId = u.id
+		WHERE 1=1
+	</sql>
+	<resultMap type="Topic" id="TopicRM">
+		<id column="id" property="id" />
+		<result column="title" property="title" />
+		<result column="createTime" property="createTime" />
+		<result column="browse" property="browse" />
+		<result column="status" property="status" />
+		<association property="user" javaType="User">
+			<id column="userId" property="id" />
+			<result column="username" property="username" />
+			<result column="password" property="password" />
+			<result column="name" property="name" />
+			<result column="phone" property="phone" />
+			<result column="email" property="email" />
+			<result column="signature" property="signature" />
+			<result column="picture" property="picture" />
+			<result column="role" property="role" />
+		</association>
+	</resultMap>
+	<select id="getAll" resultMap="TopicRM">
+		<include refid="TopicJoinUser"></include>
+	</select>
+	<select id="fetchByUserId" parameterType="int" resultType="TopicRM">
+		<include refid="TopicJoinUser"></include>
+		AND t.userId = #{userId}
+	</select>
+</mapper>

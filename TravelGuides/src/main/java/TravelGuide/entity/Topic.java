@@ -9,14 +9,17 @@ public class Topic {
     private int id;
     private String title;
     private Date createTime;
+    private int browse;
+    private User user;
     private int status;
 
     public Topic(){}
 
-    public Topic(int id, String title, Date createTime, int status) {
+    public Topic(int id, String title, Date createTime, int browse, int status) {
         this.id = id;
         this.title = title;
         this.createTime = createTime;
+        this.browse = browse;
         this.status = status;
     }
 
@@ -44,11 +47,27 @@ public class Topic {
         this.createTime = createTime;
     }
 
+    public int getBrowse() {
+        return browse;
+    }
+
+    public void setBrowse(int browse) {
+        this.browse = browse;
+    }
+
     public int getStatus() {
         return status;
     }
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

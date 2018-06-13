@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TravelGuide.mapper.CityMapper">
 	<sql id="CityJoin">
-		SELECT * FROM city 
+		SELECT * FROM city
 		where 1=1
 	</sql>
     <select id="getAll"  resultType="City">
