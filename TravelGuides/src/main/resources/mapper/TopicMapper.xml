@@ -28,9 +28,15 @@
 	</resultMap>
 	<select id="getAll" resultMap="TopicRM">
 		<include refid="TopicJoinUser"></include>
+		<if test="rows>=0">
+			LIMIT #{rows}
+		</if>
 	</select>
 	<select id="fetchByUserId" parameterType="int" resultType="TopicRM">
 		<include refid="TopicJoinUser"></include>
 		AND t.userId = #{userId}
+		<if test="rows>=0">
+			LIMIT #{rows}
+		</if>
 	</select>
 </mapper>
