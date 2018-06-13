@@ -27,7 +27,7 @@ public class CityController {
 		City city=cityMapper.findById(id);
 		return city;
 	}
-	@RequestMapping("")
+	@RequestMapping("/findByName")
 	public City findByName(String name){
 		City city=cityMapper.findByName(name);
 		return city;

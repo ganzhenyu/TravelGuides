@@ -1,5 +1,6 @@
 package TravelGuide;
 
+import TravelGuide.mapper.CityMapper;
 import TravelGuide.mapper.ScenicMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,10 +14,12 @@ public class TravelGuidesApplicationTests {
 
 	@Autowired
 	private ScenicMapper tagert;
+	@Autowired
+	private CityMapper tagert2;
 
 	@Test
 	public void contextLoads() {
-		System.out.print(tagert.fetchByCityId(1).size());
+		System.out.print(tagert2.getAll().size());
 	}
 
 }

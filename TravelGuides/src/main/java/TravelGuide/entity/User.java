@@ -11,12 +11,13 @@ public class User {
     private String phone;
     private String email;
     private String signature;
+    private int sex;
     private String picture;
     private int role;
 
     public User(){}
 
-    public User(int id, String username, String password, String name, String phone, String email, String signature, String picture, int role) {
+    public User(int id, String username, String password, String name, String phone, String email, String signature, int sex, String picture, int role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -24,6 +25,7 @@ public class User {
         this.phone = phone;
         this.email = email;
         this.signature = signature;
+        this.sex = sex;
         this.picture = picture;
         this.role = role;
     }
@@ -36,12 +38,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUserName(String userName) {
-        this.username = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -82,6 +84,14 @@ public class User {
 
     public void setSignature(String signature) {
         this.signature = signature;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
     }
 
     public String getPicture() {

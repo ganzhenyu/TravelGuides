@@ -22,6 +22,7 @@
 			<result column="phone" property="phone" />
 			<result column="email" property="email" />
 			<result column="signature" property="signature" />
+			<result column="sex" property="sex" />
 			<result column="picture" property="picture" />
 			<result column="role" property="role" />
 		</association>
