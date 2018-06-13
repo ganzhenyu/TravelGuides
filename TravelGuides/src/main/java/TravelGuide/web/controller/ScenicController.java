@@ -40,4 +40,22 @@ public class ScenicController {
         List<Scenic> scenicByBrowse = scenicMapper.fetchByBrowse(3);
         return scenicByBrowse;
     }
+
+    @RequestMapping("/scenicByCityId")
+    public List<Scenic> scenicByCityId(int cityId){
+        List<Scenic> scenicByCityId = scenicMapper.fetchByCityId(cityId);
+        return scenicByCityId;
+    }
+
+    @RequestMapping("/scenicByCollect")
+    public List<Scenic> scenicByCollect(int userId){
+        List<Scenic> scenicByCollect = scenicMapper.fetchByCollect(userId,3);
+        return scenicByCollect;
+    }
+
+    @RequestMapping("/scenicById")
+    public Scenic scenicById(int id){
+        Scenic scenicById = scenicMapper.fetchById(id);
+        return scenicById;
+    }
 }

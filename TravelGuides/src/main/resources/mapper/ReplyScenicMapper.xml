@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TravelGuide.mapper.ReplyScenicMapper">
+    <resultMap type="ReplyScenic" id="ReplyScenicRM">
+        <id column="id" property="id" />
+        <result column="content" property="content" />
+        <result column="createTime" property="createTime" />
+        <result column="evaluate" property="evaluate" />
+        <result column="scenicId" property="scenicId" />
+    </resultMap>
+    <select id="fetchByScenicId" parameterType="int" resultMap="ReplyScenicRM">
+      SELECT * FROM replyScenic WHERE scenicId = #{scenicId}
+    </select>
+    <insert id="add" parameterType="hashMap">
+      INSERT INTO ReplyScenic VALUES(#{id},#{content},#{createtime},#{evaluate},#{scenicId})
+    </insert>
+</mapper>

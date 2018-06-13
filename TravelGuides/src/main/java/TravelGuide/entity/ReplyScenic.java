@@ -9,14 +9,16 @@ public class ReplyScenic {
     private int id;
     private String content;
     private Date createTime;
+    private int evaluate;
     private int scenicId;
 
     public ReplyScenic(){}
 
-    public ReplyScenic(int id, String content, Date createTime, int scenicId) {
+    public ReplyScenic(int id, String content, Date createTime, int evaluate, int scenicId) {
         this.id = id;
         this.content = content;
         this.createTime = createTime;
+        this.evaluate = evaluate;
         this.scenicId = scenicId;
     }
 
@@ -42,6 +44,14 @@ public class ReplyScenic {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public int getEvaluate() {
+        return evaluate;
+    }
+
+    public void setEvaluate(int evaluate) {
+        this.evaluate = evaluate;
     }
 
     public int getScenicId() {

@@ -20,4 +20,8 @@
     <select id="fetchById" parameterType="int" resultType="User">
         SELECT * FROM User WHERE id=#{id}
     </select>
+    <update id="update" parameterType="User">
+        UPDATE user SET username = #{username},password = #{password},name = #{name},phone = #{phone},email = #{email},signature = #{signature},sex = #{sex},picture = #{picture},role = #{role}
+        WHERE id = #{id}
+    </update>
 </mapper>
